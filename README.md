@@ -26,3 +26,17 @@ bash format_setup.sh path/to/your/ios/project
 [Google Styleguide](https://google.github.io/styleguide/objcguide.xml)
 
 [中文翻译](http://zh-google-styleguide.readthedocs.io/en/latest/google-objc-styleguide/contents/)
+
+
+#### Swift Style 
+1.0 Add the following line in the pre-commit file (unlike the Xcode build phase approach, this uses your locally installed version of SwiftFormat, not a separate copy in your project repository)
+
+```
+#!/bin/bash
+git diff --diff-filter=d --staged --name-only | grep -e '\(.*\).swift$' | while read line; do
+  swiftformat "${line}";
+  git add "$line";
+done
+```
+
+2.0 Enable the hook by typing chmod +x .git/hooks/pre-commit in the terminal
