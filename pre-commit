@@ -11,6 +11,15 @@
 # Link:    https://github.com/githubbrowser/Pre-commit-hooks
 # Contact: David Martin, david.martin.mailbox@googlemail.com
 
+##################################################################
+# Swiftformat Precommit
+
+git diff --diff-filter=d --staged --name-only | grep -e '\(.*\).swift$' | while read line; 
+
+do
+  swiftformat "${line}";
+  git add "$line";
+done
 
 ##################################################################
 # SETTINGS
