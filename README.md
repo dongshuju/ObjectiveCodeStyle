@@ -14,7 +14,7 @@
 ```
 
 #### 上面步奏已经脚本实现直接使用format_setup.sh初始完成
-#### 注意需要先安装wget
+##### 注意需要先安装wget, brew
 #### 在当前目录下执行
 
 ```bash
@@ -28,8 +28,8 @@ bash format_setup.sh path/to/your/ios/project
 [中文翻译](http://zh-google-styleguide.readthedocs.io/en/latest/google-objc-styleguide/contents/)
 
 
-#### Swift Style 
-1.0 Add the following line in the pre-commit file (unlike the Xcode build phase approach, this uses your locally installed version of SwiftFormat, not a separate copy in your project repository)
+### Swift Style 
+Add the following line in the pre-commit file (unlike the Xcode build phase approach, this uses your locally installed version of SwiftFormat, not a separate copy in your project repository)
 
 ```
 #!/bin/bash
@@ -38,5 +38,3 @@ git diff --diff-filter=d --staged --name-only | grep -e '\(.*\).swift$' | while 
   git add "$line";
 done
 ```
-
-2.0 Enable the hook by typing chmod +x .git/hooks/pre-commit in the terminal
