@@ -15,6 +15,9 @@ Pack_Path=$1
 Format_Path=$Pack_Path"/format_tmp"
 mkdir $Format_Path
 
+# download swiftformat
+brew install swiftformat
+
 # 下载clang-format
 wget http://llvm.org/releases/3.5.2/clang+llvm-3.5.2-x86_64-apple-darwin.tar.xz -P $Format_Path
 tar -xf $Format_Path'/clang+llvm-3.5.2-x86_64-apple-darwin.tar.xz' -C $Format_Path
